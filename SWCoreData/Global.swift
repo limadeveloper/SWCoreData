@@ -39,4 +39,28 @@ class Global {
         window?.rootViewController = controller
     }
     
+    func dismissKeyboard(fields: [UITextField]) {
+        if fields.count > 0 {
+            for field in fields {
+                field.resignFirstResponder()
+            }
+        }
+    }
+    
+    func getLocalJsonData(name: JsonName) -> (json: DictionaryType?, error: String?) {
+        var result: (json: DictionaryType?, error: String?) = (nil, nil)
+        if let path = Bundle.main.path(forResource: name.rawValue, ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path))
+                let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? DictionaryType
+                result = (json, nil)
+            }catch let error {
+                result = (nil, error.localizedDescription)
+            }
+        }else {
+            print("Invalid filename/path.")
+        }
+        return result
+    }
+    
 }

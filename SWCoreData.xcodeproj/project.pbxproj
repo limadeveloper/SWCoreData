@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F1010CFE1D8A4CF600995F07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1010CFD1D8A4CF600995F07 /* AppDelegate.swift */; };
-		F1010D001D8A4CF600995F07 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1010CFF1D8A4CF600995F07 /* ViewController.swift */; };
+		F1010D001D8A4CF600995F07 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1010CFF1D8A4CF600995F07 /* LoginViewController.swift */; };
 		F1010D031D8A4CF600995F07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1010D011D8A4CF600995F07 /* Main.storyboard */; };
 		F1010D061D8A4CF600995F07 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F1010D041D8A4CF600995F07 /* Model.xcdatamodeld */; };
 		F1010D081D8A4CF600995F07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1010D071D8A4CF600995F07 /* Assets.xcassets */; };
@@ -25,7 +25,7 @@
 /* Begin PBXFileReference section */
 		F1010CFA1D8A4CF600995F07 /* SWCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SWCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1010CFD1D8A4CF600995F07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F1010CFF1D8A4CF600995F07 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F1010CFF1D8A4CF600995F07 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F1010D021D8A4CF600995F07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F1010D051D8A4CF600995F07 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		F1010D071D8A4CF600995F07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -112,7 +112,7 @@
 		F1010D151D8A4D2B00995F07 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F1010CFF1D8A4CF600995F07 /* ViewController.swift */,
+				F1010CFF1D8A4CF600995F07 /* LoginViewController.swift */,
 				F1A6A81C1D8F93AD004CEEC5 /* HomeViewController.swift */,
 			);
 			name = Controller;
@@ -212,7 +212,7 @@
 			files = (
 				F1010D061D8A4CF600995F07 /* Model.xcdatamodeld in Sources */,
 				F1010D171D8A4DB600995F07 /* ModelMenager.swift in Sources */,
-				F1010D001D8A4CF600995F07 /* ViewController.swift in Sources */,
+				F1010D001D8A4CF600995F07 /* LoginViewController.swift in Sources */,
 				F1010D1B1D8A581A00995F07 /* User.swift in Sources */,
 				F1010D1E1D8A593D00995F07 /* UserModel.swift in Sources */,
 				F1A6A81D1D8F93AD004CEEC5 /* HomeViewController.swift in Sources */,

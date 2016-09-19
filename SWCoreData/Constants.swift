@@ -6,6 +6,9 @@
 //  Copyright © 2016 limadeveloper. All rights reserved.
 //
 
+typealias DictionaryType = Dictionary<String,AnyObject>
+typealias ArrayType = [Dictionary<String,AnyObject>]
+
 enum Messages: String {
     case DataNoFound = "Dados não foram encontrados."
 }
@@ -21,4 +24,8 @@ enum UI: String {
 enum Identity: String {
     case Login = "Login"
     case Home = "Home"
+}
+
+enum JsonName: String {
+    case User = "user"
 }
