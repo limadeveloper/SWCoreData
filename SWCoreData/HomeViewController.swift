@@ -1,19 +1,20 @@
 //
-//  LoginViewController.swift
+//  HomeViewController.swift
 //  SWCoreData
 //
-//  Created by John Lima on 15/09/16.
+//  Created by John Lima on 19/09/16.
 //  Copyright © 2016 limadeveloper. All rights reserved.
 //
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
     }
 
-}
 
+}
