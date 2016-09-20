@@ -54,6 +54,25 @@
             </objects>
             <point key="canvasLocation" x="935.625" y="84.507042253521121"/>
         </scene>
+        <!--User-->
+        <scene sceneID="k51-bc-hEH">
+            <objects>
+                <viewController id="cuh-Wp-rpD" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pNU-gK-n8Y"/>
+                        <viewControllerLayoutGuide type="bottom" id="RWn-Q9-LFn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mzp-6r-iqR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="User" id="OKo-sC-nV3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BeD-r7-vYC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1673" y="85"/>
+        </scene>
         <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -67,7 +86,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="Vel-l4-Cmg"/>
+                    <navigationItem key="navigationItem" title="Home" id="Vel-l4-Cmg">
+                        <barButtonItem key="leftBarButtonItem" image="user" id="emI-Qj-80i">
+                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="cuh-Wp-rpD" kind="show" identifier="user" id="ufE-Xt-wr8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -92,4 +118,7 @@
             <point key="canvasLocation" x="142.5" y="801.76056338028172"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="user" width="35" height="35"/>
+    </resources>
 </document>

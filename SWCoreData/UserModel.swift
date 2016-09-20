@@ -37,32 +37,32 @@ class UserModel {
     
     init() {}
     
-    init(data: Dictionary<UserAttributes,Any>) {
+    init(data: Dictionary<String,Any>) {
         if
-            let email = data[.Email] as? String,
-            let password = data[.Password] as? String,
-            let id = data[.Id] as? Int {
+            let email = data[UserAttributes.Email.rawValue] as? String,
+            let password = data[UserAttributes.Password.rawValue] as? String,
+            let id = data[UserAttributes.Id.rawValue] as? Int {
             
             self.email = email
             self.password = password
             self.id = id
             
-            if let name = data[.Name] as? String {
+            if let name = data[UserAttributes.Name.rawValue] as? String {
                 self.name = name
             }
-            if let lastName = data[.LastName] as? String {
+            if let lastName = data[UserAttributes.LastName.rawValue] as? String {
                 self.lastName = lastName
             }
-            if let age = data[.Age] as? Int {
+            if let age = data[UserAttributes.Age.rawValue] as? Int {
                 self.age = age
             }
-            if let gender = data[.Gender] as? String {
+            if let gender = data[UserAttributes.Gender.rawValue] as? String {
                 self.gender = gender
             }
-            if let language = data[.Language] as? String {
+            if let language = data[UserAttributes.Language.rawValue] as? String {
                 self.language = language
             }
-            if let country = data[.Country] as? String {
+            if let country = data[UserAttributes.Country.rawValue] as? String {
                 self.country = country
             }
         }
@@ -219,36 +219,36 @@ extension UserModel {
         return self.menager.delete(entity: .User)
     }
     
-    func getDictionary(model: UserModel) -> Dictionary<UserAttributes,Any>? {
+    func getDictionary(model: UserModel) -> Dictionary<String,Any>? {
         
-        var result = Dictionary<UserAttributes,Any>()
+        var result = Dictionary<String,Any>()
         
         if let name = model.name {
-            result[.Name] = name
+            result[UserAttributes.Name.rawValue] = name
         }
         if let lastName = model.lastName {
-            result[.LastName] = lastName
+            result[UserAttributes.LastName.rawValue] = lastName
         }
         if let age = model.age {
-            result[.Age] = age
+            result[UserAttributes.Age.rawValue] = age
         }
         if let gender = model.gender {
-            result[.Gender] = gender
+            result[UserAttributes.Gender.rawValue] = gender
         }
         if let language = model.language {
-            result[.Language] = language
+            result[UserAttributes.Language.rawValue] = language
         }
         if let country = model.country {
-            result[.Country] = country
+            result[UserAttributes.Country.rawValue] = country
         }
         if let email = model.email {
-            result[.Email] = email
+            result[UserAttributes.Email.rawValue] = email
         }
         if let password = model.password {
-            result[.Password] = password
+            result[UserAttributes.Password.rawValue] = password
         }
         if let id = model.id {
-            result[.Id] = id
+            result[UserAttributes.Id.rawValue] = id
         }
         
         if result.isEmpty {

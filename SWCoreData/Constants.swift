@@ -6,11 +6,17 @@
 //  Copyright © 2016 limadeveloper. All rights reserved.
 //
 
-typealias DictionaryType = Dictionary<String,AnyObject>
-typealias ArrayType = [Dictionary<String,AnyObject>]
+typealias DictionaryType = Dictionary<String,Any>
+typealias ArrayType = [Dictionary<String,Any>]
 
 enum Messages: String {
     case DataNoFound = "Dados não foram encontrados."
+    case Alert = "Alerta"
+    case Ok = "Ok"
+    case CheckFields = "Verifique os campos"
+    case Saved = "Dados salvos com sucesso"
+    case SaveError = "Ocorreu um erro ao tentar salvar os dados"
+    case Success = "Sucesso"
 }
 
 enum Key: String {
@@ -27,5 +33,9 @@ enum Identity: String {
 }
 
 enum JsonName: String {
+    case User = "user"
+}
+
+enum Segue: String {
     case User = "user"
 }

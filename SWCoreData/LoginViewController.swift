@@ -32,19 +32,42 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         self.loginField.delegate = self
         self.passwordField.delegate = self
-        
-        let user = self.global.getLocalJsonData(name: .User)
-        
-        if user.json != nil, let json = user.json {
-            print("json: \(json)")
-        }else {
-            print("error: \(user.error)")
-        }
     }
     
     private func login() {
         
         self.global.dismissKeyboard(fields: [self.loginField, self.passwordField])
+        
+        let actionError = UIAlertAction(title: Messages.Ok.rawValue, style: .destructive, handler: nil)
+        
+        let email = self.loginField.text?.replacingOccurrences(of: " ", with: "").lowercased()
+        let password = self.passwordField.text?.replacingOccurrences(of: " ", with: "")
+        
+        if email != "" && password != "" && self.global.isValidEmail(email: email), let email = email, let password = password {
+            let user = self.global.getUserWith(email: email, password: password)
+            if let user = user.user {
+                let model = UserModel(data: user)
+                let save = model.saveFrom(model: model)
+                if save.success {
+                    let actionOk = UIAlertAction(title: Messages.Ok.rawValue, style: .default) { [weak self] (action) in
+                        self?.global.saveBool(value: true, key: .Login)
+                        self?.global.setupInitialViewController()
+                    }
+                    DispatchQueue.main.async {
+                        self.global.createAlert(title: Messages.Success.rawValue, message: Messages.Saved.rawValue, actions: [actionOk], target: self)
+                    }
+                }else {
+                    let error = save.error != nil ? "Erro: \(save.error!)" : Messages.SaveError.rawValue
+                    DispatchQueue.main.async {
+                        self.global.createAlert(title: Messages.Alert.rawValue, message: error, actions: [actionError], target: self)
+                    }
+                }
+            }
+        }else {
+            DispatchQueue.main.async {
+                self.global.createAlert(title: Messages.Alert.rawValue, message: Messages.CheckFields.rawValue, actions: [actionError], target: self)
+            }
+        }
     }
     
     // MARK: TextField Delegate
