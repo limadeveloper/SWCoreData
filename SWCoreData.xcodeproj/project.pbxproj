@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		82D9D8091D98470600AD7263 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D9D8081D98470600AD7263 /* UserViewController.swift */; };
 		F1010CFE1D8A4CF600995F07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1010CFD1D8A4CF600995F07 /* AppDelegate.swift */; };
 		F1010D001D8A4CF600995F07 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1010CFF1D8A4CF600995F07 /* LoginViewController.swift */; };
 		F1010D031D8A4CF600995F07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1010D011D8A4CF600995F07 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		82D9D8081D98470600AD7263 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		F1010CFA1D8A4CF600995F07 /* SWCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SWCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1010CFD1D8A4CF600995F07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1010CFF1D8A4CF600995F07 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			children = (
 				F1010CFF1D8A4CF600995F07 /* LoginViewController.swift */,
 				F1A6A81C1D8F93AD004CEEC5 /* HomeViewController.swift */,
+				82D9D8081D98470600AD7263 /* UserViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1010D061D8A4CF600995F07 /* Model.xcdatamodeld in Sources */,
+				82D9D8091D98470600AD7263 /* UserViewController.swift in Sources */,
 				F1010D171D8A4DB600995F07 /* ModelMenager.swift in Sources */,
 				F1010D001D8A4CF600995F07 /* LoginViewController.swift in Sources */,
 				F1010D1B1D8A581A00995F07 /* User.swift in Sources */,

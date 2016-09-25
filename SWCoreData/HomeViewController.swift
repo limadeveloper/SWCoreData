@@ -12,6 +12,7 @@ class HomeViewController: UIViewController {
 
     // MARK: - Properties
     private let user = UserModel()
+    private var userData: [UserModel]?
     
     // MARK: - View LifeCycle
     override func viewDidLoad() {
@@ -28,12 +29,20 @@ class HomeViewController: UIViewController {
     private func getData() {
         
         let user = self.user.getData()
-        print("Number of users: \(user.data?.count)")
+        self.userData = user.data
+        
+        print("Number of users: \(self.userData?.count)")
     }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        switch segue.identifier! {
+        case Segue.User.rawValue:
+            let controller = segue.destination as! UserViewController
+            controller.user = self.userData
+        default:
+            break
+        }
     }
     
 }

@@ -32,6 +32,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         self.loginField.delegate = self
         self.passwordField.delegate = self
+        
+        self.loginField.text = "limadeveloper@apple.com"
+        self.passwordField.text = "12345678"
     }
     
     private func login() {
@@ -61,6 +64,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     DispatchQueue.main.async {
                         self.global.createAlert(title: Messages.Alert.rawValue, message: error, actions: [actionError], target: self)
                     }
+                }
+            }else {
+                let error = Messages.CheckFields.rawValue
+                DispatchQueue.main.async {
+                    self.global.createAlert(title: Messages.Alert.rawValue, message: error, actions: [actionError], target: self)
                 }
             }
         }else {
