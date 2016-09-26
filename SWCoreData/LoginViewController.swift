@@ -51,9 +51,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             if let user = user.user {
                 let model = UserModel(data: user)
                 let save = model.saveFrom(model: model)
-                if save.success {
+                if save.success, let id = model.id {
                     let actionOk = UIAlertAction(title: Messages.Ok.rawValue, style: .default) { [weak self] (action) in
-                        self?.global.saveBool(value: true, key: .Login)
+                        self?.global.save(int: id, key: .User)
+                        self?.global.save(bool: true, key: .Login)
                         self?.global.setupInitialViewController()
                     }
                     DispatchQueue.main.async {

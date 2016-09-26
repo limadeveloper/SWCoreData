@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2327e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mLz-Wb-hE6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2327e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="WLr-B5-I2a">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -67,7 +67,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="User" id="OKo-sC-nV3"/>
+                    <navigationItem key="navigationItem" title="User" id="OKo-sC-nV3">
+                        <barButtonItem key="rightBarButtonItem" title="logout" id="2vM-Rk-4EY">
+                            <connections>
+                                <action selector="logout" destination="cuh-Wp-rpD" id="Bfu-1M-n4i"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BeD-r7-vYC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -87,8 +93,8 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="Vel-l4-Cmg">
-                        <barButtonItem key="leftBarButtonItem" image="user" id="emI-Qj-80i">
-                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <barButtonItem key="rightBarButtonItem" image="user" id="emI-Qj-80i">
+                            <color key="tintColor" red="1" green="0.0" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="showUser" destination="BYZ-38-t0r" id="cYE-Zw-Xwk"/>
                             </connections>
@@ -110,6 +116,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rYK-kU-AcI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="0.0" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

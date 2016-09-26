@@ -12,8 +12,13 @@ let App = UIApplication.shared
 
 class Global {
     
-    func saveBool(value: Bool, key: Key) {
-        UserDefaults.standard.set(value, forKey: key.rawValue)
+    func save(bool: Bool, key: Key) {
+        UserDefaults.standard.set(bool, forKey: key.rawValue)
+        UserDefaults.standard.synchronize()
+    }
+    
+    func save(int: Int, key: Key) {
+        UserDefaults.standard.set(int, forKey: key.rawValue)
         UserDefaults.standard.synchronize()
     }
     
@@ -21,22 +26,13 @@ class Global {
         return UserDefaults.standard.bool(forKey: key.rawValue)
     }
     
-    func setupInitialViewController() {
-        
-        let appDelegate = App.delegate as? AppDelegate
-        let window = appDelegate?.window
-        
-        if self.getBool(key: .Login) {
-            self.startController(named: .Home, window: window)
-        }else {
-            self.startController(named: .Login, window: window)
-        }
+    func getInt(key: Key) -> Int? {
+        return UserDefaults.standard.integer(forKey: key.rawValue)
     }
     
-    func startController(named: Identity, window: UIWindow?) {
-        let storyboard = UIStoryboard(name: UI.Main.rawValue, bundle: Bundle.main)
-        let controller = storyboard.instantiateViewController(withIdentifier: named.rawValue)
-        window?.rootViewController = controller
+    func delete(key: Key) {
+        UserDefaults.standard.removeObject(forKey: key.rawValue)
+        UserDefaults.standard.synchronize()
     }
     
     func dismissKeyboard(fields: [UITextField]) {

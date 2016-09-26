@@ -18,13 +18,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        self.global.setupInitialViewController()
+        self.startController()
         
         return true
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
         self.modelMenager.saveContext()
+    }
+    
+    func startController() {
+        
+        let storyboard = UIStoryboard(name: UI.Main.rawValue, bundle: .main)
+        let controller: UIViewController?
+        
+        let login = self.global.getBool(key: .Login)
+        
+        if login != true {
+            controller = storyboard.instantiateViewController(withIdentifier: Identity.Login.rawValue)
+        }else {
+            controller = storyboard.instantiateViewController(withIdentifier: Identity.Home.rawValue)
+        }
+        
+        self.window?.rootViewController = controller
     }
 }
 

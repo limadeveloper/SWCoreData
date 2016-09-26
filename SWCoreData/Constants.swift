@@ -21,6 +21,7 @@ enum Messages: String {
 
 enum Key: String {
     case Login = "KEY_LOGIN"
+    case User = "KEY_USER_ID"
 }
 
 enum UI: String {

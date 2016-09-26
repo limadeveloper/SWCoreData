@@ -12,6 +12,7 @@ class HomeViewController: UIViewController {
 
     // MARK: - Properties
     private let user = UserModel()
+    private let global = Global()
     private var userData: [UserModel]?
     
     // MARK: - View LifeCycle
@@ -39,7 +40,8 @@ class HomeViewController: UIViewController {
         switch segue.identifier! {
         case Segue.User.rawValue:
             let controller = segue.destination as! UserViewController
-            controller.user = self.userData
+            let userId = self.global.getInt(key: .User)
+            controller.user = self.userData?.filter({$0.id == userId}).first
         default:
             break
         }
