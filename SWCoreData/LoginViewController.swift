@@ -15,6 +15,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordField: UITextField!
     
     private let global = Global()
+    private let appDelegate = App.delegate as? AppDelegate
     
     // MARK: View LifeCycle
     override func viewDidLoad() {
@@ -55,7 +56,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     let actionOk = UIAlertAction(title: Messages.Ok.rawValue, style: .default) { [weak self] (action) in
                         self?.global.save(int: id, key: .User)
                         self?.global.save(bool: true, key: .Login)
-                        self?.global.setupInitialViewController()
+                        self?.appDelegate?.startController()
                     }
                     DispatchQueue.main.async {
                         self.global.createAlert(title: Messages.Success.rawValue, message: Messages.Saved.rawValue, actions: [actionOk], target: self)

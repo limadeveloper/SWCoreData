@@ -20,6 +20,18 @@ enum UserAttributes: String {
     case Id = "id"
 }
 
+enum UserKeys: String {
+    case Name = "Name"
+    case LastName = "Last Name"
+    case Age = "Age"
+    case Gender = "Gender"
+    case Language = "Language"
+    case Country = "Country"
+    case Email = "Email"
+    case Password = "Password"
+    case Id = "Id"
+}
+
 class UserModel {
     
     var name: String?
@@ -37,7 +49,7 @@ class UserModel {
     
     init() {}
     
-    init(data: Dictionary<String,Any>) {
+    init(data: DictionaryType) {
         if
             let email = data[UserAttributes.Email.rawValue] as? String,
             let password = data[UserAttributes.Password.rawValue] as? String,
@@ -219,9 +231,9 @@ extension UserModel {
         return self.menager.delete(entity: .User)
     }
     
-    func getDictionary(model: UserModel) -> Dictionary<String,Any>? {
+    func getDictionary(model: UserModel) -> DictionaryType? {
         
-        var result = Dictionary<String,Any>()
+        var result = DictionaryType()
         
         if let name = model.name {
             result[UserAttributes.Name.rawValue] = name
@@ -249,6 +261,42 @@ extension UserModel {
         }
         if let id = model.id {
             result[UserAttributes.Id.rawValue] = id
+        }
+        
+        if result.isEmpty {
+            return nil
+        }
+        
+        return result
+    }
+    
+    func getDictionaryFormatedKeys(model: UserModel) -> DictionaryType? {
+        
+        var result = DictionaryType()
+        
+        if let name = model.name, let lastName = model.lastName {
+            result[UserKeys.Name.rawValue] = "\(name) \(lastName)"
+        }
+        if let age = model.age {
+            result[UserKeys.Age.rawValue] = age
+        }
+        if let gender = model.gender {
+            result[UserKeys.Gender.rawValue] = gender
+        }
+        if let language = model.language {
+            result[UserKeys.Language.rawValue] = language
+        }
+        if let country = model.country {
+            result[UserKeys.Country.rawValue] = country
+        }
+        if let email = model.email {
+            result[UserKeys.Email.rawValue] = email
+        }
+        if let password = model.password {
+            result[UserKeys.Password.rawValue] = password
+        }
+        if let id = model.id {
+            result[UserKeys.Id.rawValue] = id
         }
         
         if result.isEmpty {

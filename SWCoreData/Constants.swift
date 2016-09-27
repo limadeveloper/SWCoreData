@@ -6,9 +6,6 @@
 //  Copyright © 2016 limadeveloper. All rights reserved.
 //
 
-typealias DictionaryType = Dictionary<String,Any>
-typealias ArrayType = [Dictionary<String,Any>]
-
 enum Messages: String {
     case DataNoFound = "Dados não foram encontrados."
     case Alert = "Alerta"

@@ -10,6 +10,9 @@ import UIKit
 
 let App = UIApplication.shared
 
+typealias ArrayType = [Dictionary<String,Any>]
+typealias DictionaryType = Dictionary<String,Any>
+
 class Global {
     
     func save(bool: Bool, key: Key) {

@@ -12,9 +12,10 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    private let modelMenager = ModelMenager()
+    private let global = Global()
+    
     var window: UIWindow?
-    let modelMenager = ModelMenager()
-    let global = Global()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
