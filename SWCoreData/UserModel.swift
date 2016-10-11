@@ -3,7 +3,7 @@
 //  SWCoreData
 //
 //  Created by John Lima on 15/09/16.
-//  Copyright © 2016 limadeveloper. All rights reserved.
+//  Copyright © 2016 limadeveloper. All rights reserved.
 //
 
 import CoreData
@@ -168,6 +168,7 @@ extension UserModel {
         
         var result: (success: Bool, error: String?) = (false, nil)
         
+        let predicate = self.menager
         let entityData = self.menager.getData(entity: .User)
         
         func save() {

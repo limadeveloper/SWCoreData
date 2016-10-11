@@ -3,7 +3,7 @@
 //  SWCoreData
 //
 //  Created by John Lima on 18/09/16.
-//  Copyright © 2016 limadeveloper. All rights reserved.
+//  Copyright © 2016 limadeveloper. All rights reserved.
 //
 
 import UIKit

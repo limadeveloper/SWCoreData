@@ -3,13 +3,18 @@
 //  SWCoreData
 //
 //  Created by John Lima on 15/09/16.
-//  Copyright © 2016 limadeveloper. All rights reserved.
+//  Copyright © 2016 limadeveloper. All rights reserved.
 //
 
 import CoreData
 
 enum Entity: String {
     case User = "User"
+}
+
+enum PredicateType: String {
+    case Equal = "=="
+    case Different = "<>"
 }
 
 class ModelMenager {
@@ -75,11 +80,13 @@ class ModelMenager {
         return result
     }
     
-    func getData(entity: Entity) -> (data: [Any]?, error: String?) {
+    func getData(entity: Entity, predicate: NSPredicate? = nil) -> (data: [Any]?, error: String?) {
         
         var result: (data: [Any]?, error: String?) = (nil, nil)
         let context = self.getContext()
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: entity.rawValue)
+        
+        fetchRequest.predicate = predicate
         
         do {
             let results = try context.fetch(fetchRequest)
@@ -108,6 +115,20 @@ class ModelMenager {
         }
         
         return result
+    }
+    
+    func getPredicate(id: Int?, key: String, type: PredicateType) -> NSPredicate? {
+        if let id = id {
+            return NSPredicate(format: "\(key) \(type.rawValue) %d", id)
+        }
+        return nil
+    }
+    
+    func getPredicate(value: String?, key: String, type: PredicateType) -> NSPredicate? {
+        if let value = value {
+            return NSPredicate(format: "\(key) \(type.rawValue) %@", value)
+        }
+        return nil
     }
     
 }
