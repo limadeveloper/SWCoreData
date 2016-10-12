@@ -9,19 +9,18 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    
     // MARK: - Properties
-    private let user = UserModel()
+    private var user = UserModel()
     private let global = Global()
-    private var userData: [UserModel]?
     
     // MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.getData()
     }
-
+    
     // MARK: - Actions
     @IBAction func showUser() {
         self.performSegue(withIdentifier: Segue.User.rawValue, sender: nil)
@@ -29,10 +28,14 @@ class HomeViewController: UIViewController {
     
     private func getData() {
         
-        let user = self.user.getData()
-        self.userData = user.data
+        if
+            let userId = self.global.getInt(key: .User),
+            let userData = self.user.getData(param1: (userId, UserAttributes.Id.rawValue, .Equal)).data?.first {
+            
+            self.user = userData
+        }
         
-        print("Number of users: \(self.userData?.count)")
+        print("User: \(self.user.name)")
     }
     
     // MARK: - Navigation
@@ -40,8 +43,7 @@ class HomeViewController: UIViewController {
         switch segue.identifier! {
         case Segue.User.rawValue:
             let controller = segue.destination as! UserViewController
-            let userId = self.global.getInt(key: .User)
-            controller.user = self.userData?.filter({$0.id == userId}).first
+            controller.user = self.user
         default:
             break
         }

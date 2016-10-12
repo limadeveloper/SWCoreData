@@ -11,6 +11,7 @@ import CoreData
 @objc(User)
 
 class User: NSManagedObject {
+    
     @NSManaged var name: String
     @NSManaged var lastName: String
     @NSManaged var age: NSNumber
@@ -20,4 +21,5 @@ class User: NSManagedObject {
     @NSManaged var email: String
     @NSManaged var password: String
     @NSManaged var id: NSNumber
+    
 }

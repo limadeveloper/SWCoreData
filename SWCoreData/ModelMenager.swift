@@ -15,10 +15,13 @@ enum Entity: String {
 enum PredicateType: String {
     case Equal = "=="
     case Different = "<>"
+    case AND = "AND"
 }
 
 class ModelMenager {
 
+    private let storeName = "Model"
+    
     // MARK: - Core Data stack
     lazy var persistentContainer: NSPersistentContainer = {
         /*
@@ -27,7 +30,7 @@ class ModelMenager {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
          */
-        let container = NSPersistentContainer(name: "Model")
+        let container = NSPersistentContainer(name: self.storeName)
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.

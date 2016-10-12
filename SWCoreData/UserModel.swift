@@ -168,8 +168,8 @@ extension UserModel {
         
         var result: (success: Bool, error: String?) = (false, nil)
         
-        let predicate = self.menager
-        let entityData = self.menager.getData(entity: .User)
+        let predicate = self.menager.getPredicate(id: model.id, key: UserAttributes.Id.rawValue, type: .Equal)
+        let entityData = self.menager.getData(entity: .User, predicate: predicate)
         
         func save() {
             let save = self.save(model: model)
@@ -191,16 +191,22 @@ extension UserModel {
         return result
     }
     
-    func getData() -> (data: [UserModel]?, error: String?) {
+    func getData(param1: (value: Int, key: String, type: PredicateType)? = nil, param2: (value: String, key: String, type: PredicateType)? = nil) -> (data: [UserModel]?, error: String?) {
         
-        let msg: String? = Messages.DataNoFound.rawValue
-        var result: (data: [UserModel]?, error: String?) = (nil, nil)
+        var result: (data: [UserModel]?, error: String?) = (nil, Messages.DataNoFound.rawValue)
         var item = UserModel()
         var items = [UserModel]()
+        var predicate: NSPredicate?
         
-        let data = self.menager.getData(entity: .User)
+        if let param1 = param1 {
+            predicate = self.menager.getPredicate(id: param1.value, key: param1.key, type: param1.type)
+        }else if let param2 = param2 {
+            predicate = self.menager.getPredicate(value: param2.value, key: param2.key, type: param2.type)
+        }
         
-        if let data = data.data as? [User] {
+        let data = self.menager.getData(entity: .User, predicate: predicate)
+        
+        if let data = data.data as? [User], data.count > 0 {
             
             for entity in data {
                 
@@ -221,8 +227,6 @@ extension UserModel {
             if items.count > 0 {
                 result = (items, nil)
             }
-        }else {
-            result = (nil, msg)
         }
         
         return result
